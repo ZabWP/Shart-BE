@@ -1,0 +1,84 @@
+[
+    {
+      "user_ID": 101,
+      "name": "Luna Astralis",
+      "username": "LunaStar92",
+      "email": "luna.astralis@email.com",
+      "bio": "A digital dreamer exploring the cosmos through art.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2023-08-15"
+    },
+    {
+      "user_ID": 102,
+      "name": "Kai Futurist",
+      "username": "KaiVision88",
+      "email": "kai.futurist@email.com",
+      "bio": "Envisioning the neon-lit future, one artwork at a time.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2022-11-30"
+    },
+    {
+      "user_ID": 103,
+      "name": "Aria Evergreen",
+      "username": "AriaEcho77",
+      "email": "aria.evergreen@email.com",
+      "bio": "Bringing nature’s whispers to the digital world.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2021-06-21"
+    },
+    {
+      "user_ID": 104,
+      "name": "Dante Chronos",
+      "username": "DanteTime99",
+      "email": "dante.chronos@email.com",
+      "bio": "Echoing the past, shaping the future through art.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2020-12-10"
+    },
+    {
+      "user_ID": 105,
+      "name": "Nova Harmonia",
+      "username": "NovaTune65",
+      "email": "nova.harmonia@email.com",
+      "bio": "A symphony of colors and stars in digital form.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2023-03-05"
+    },
+    {
+      "user_ID": 106,
+      "name": "Ophelia Lux",
+      "username": "OpheliaGlow78",
+      "email": "ophelia.lux@email.com",
+      "bio": "Illuminating the digital world with golden hues.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2022-05-14"
+    },
+    {
+      "user_ID": 107,
+      "name": "Xander Code",
+      "username": "XanderBit42",
+      "email": "xander.code@email.com",
+      "bio": "Decrypting dystopian futures through pixelated visions.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2021-09-08"
+    },
+    {
+      "user_ID": 108,
+      "name": "Ezra Zen",
+      "username": "EzraCalm33",
+      "email": "ezra.zen@email.com",
+      "bio": "Finding peace within the digital chaos.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2020-02-27"
+    },
+    {
+      "user_ID": 109,
+      "name": "Iris Morph",
+      "username": "IrisShift56",
+      "email": "iris.morph@email.com",
+      "bio": "Transforming perspectives through ever-evolving art.",
+      "profile_pic": "https://cdn.discordapp.com/attachments/1346268283279773759/1346874768770596985/blank-profile-picture-973460_1280.png?ex=67cb17e0&is=67c9c660&hm=3b4aa8b7942a0363a038083ac8da41045edecbae54e70c4bacc6296763030dff&",
+      "created_At": "2023-07-19"
+    }
+  ]
+  
