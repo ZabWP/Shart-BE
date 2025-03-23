@@ -1,18 +1,19 @@
 <?php
-// Step 1: Establish a connection to the local MySQL database
-$servername = "localhost";  // Local server
-$username = "u5f4spq8tat7cr";         // Default username for XAMPP or MAMP
-$password = "password";             // Default password is empty
-$database = "Shart"; // Replace with your database name
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Content-Type: application/json");
 
-// Create connection
+$servername = "127.0.0.1";  
+$username = "zbronola1";         
+$password = "zbronola1";        
+$database = "zbronola1";
 $conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+if (empty($_SERVER['QUERY_STRING'])) {
 // Step 2: Write the query to select all data from a table
 $sql = "SELECT * FROM yourTableName"; // Replace 'yourTableName' with your actual table name
 
@@ -31,4 +32,29 @@ if ($result->num_rows > 0) {
 
 // Step 5: Close the connection
 $conn->close();
+exit();
+
+}
+else {
+    $id = $_GET['userID']; 
+    $query = "
+        SELECT users.*, artGallery.* 
+        FROM users 
+        INNER JOIN artGallery ON users.userID = artGallery.authorID
+        WHERE users.userID = $id";
+
+    $result = $conn->query($query);
+    $data = []; 
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;  // Add each row to the data array
+        }
+    } else {
+        $data = ['error' => 'No data found'];
+    }
+    $conn->close();
+    echo json_encode($data);
+    exit();
+    
+}
 ?>

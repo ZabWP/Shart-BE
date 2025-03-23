@@ -1,24 +1,47 @@
 <?php
-// Allow requests from any origin (CORS handling)
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
 
-if (empty($_SERVER['QUERY_STRING'])) {
-    $jsonData = file_get_contents("./art.json");
+$servername = "127.0.0.1";  
+$username = "zbronola1";         
+$password = "zbronola1";        
+$database = "zbronola1";
+$conn = new mysqli($servername, $username, $password, $database);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
-    echo $jsonData;
-    exit();
-} else {
-    $id = $_GET['id'];
-    $jsonData = file_get_contents("./art.json");
-    $artPosts = json_decode($jsonData, true);
-    foreach ($artPosts as $artPost) {
-        if ($artPost['id'] == $id) {
-            echo json_encode($artPost);
-            exit();
+
+if (empty($_SERVER['QUERY_STRING'])) {
+    $sql = "SELECT * FROM artGallery";
+    $result = $conn->query($sql);
+    $data = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
         }
     }
-    echo json_encode(["error" => "Art post not found"]);
+    $conn->close();
+    echo json_encode($data);
+    exit();
+    
+} else {
+    $id = $_GET['id'];
+    $sql = 
+    "SELECT artGallery.*, users.username, users.name , users.profilePic 
+    FROM artGallery INNER JOIN users ON artGallery.authorID = users.userID 
+    WHERE artID = $id";
+    $result = $conn->query($sql);
+    $data = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+    $conn->close();
+    echo json_encode($data);
     exit();  
 }
 
