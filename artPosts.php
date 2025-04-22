@@ -15,19 +15,26 @@ if ($conn->connect_error) {
 
 
 if (empty($_SERVER['QUERY_STRING'])) {
-    $sql = "SELECT * FROM artGallery";
+    $sql = "SELECT artGallery.*, users.username, users.name , users.profilePic 
+    FROM artGallery INNER JOIN users ON artGallery.authorID = users.userID";
     $result = $conn->query($sql);
+
     $data = [];
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
     }
-    $conn->close();
+
     echo json_encode($data);
+
+    $conn->close();
     exit();
-    
-} else {
+} 
+
+
+
+else {
     $id = $_GET['id'];
     $sql = 
     "SELECT artGallery.*, users.username, users.name , users.profilePic 

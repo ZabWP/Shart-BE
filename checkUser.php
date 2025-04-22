@@ -28,10 +28,15 @@ $sql->bind_param("s", $email);
 $sql->execute();
 $result = $sql->get_result();
 
+$user = [];
+
 if ($result->num_rows == 0) {
     echo json_encode(["status" => "newUser"]);
 } else {
-    echo json_encode(["status" => "existingUser"]);
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+    echo json_encode($data);
 }
 
 $conn->close();
