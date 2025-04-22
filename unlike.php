@@ -24,31 +24,27 @@ $data = json_decode(file_get_contents("php://input"), true);
 $username = $data['username'] ?? '';
 $artID = intval($data['artID'] ?? 0);
 
-// if (!$username || !$artID) {
-//     http_response_code(400);
-//     echo json_encode(["status" => "error", "message" => "Missing username or postID"]);
-//     exit();
-// }
+if (!$username || !$artID) {
+    http_response_code(400);
+    echo json_encode(["status" => "error", "message" => "Missing username or postID"]);
+    exit();
+}
 
-// Get userID from username
-// $userQuery = $conn->prepare("SELECT userID FROM users WHERE username = ?");
-// $userQuery->bind_param("s", $username);
-// $userQuery->execute();
-// $userQuery->bind_result($userID);
-// $userFound = $userQuery->fetch();
-// $userQuery->close();
+$userQuery = $conn->prepare("SELECT userID FROM users WHERE username = ?");
+$userQuery->bind_param("s", $username);
+$userQuery->execute();
+$userQuery->bind_result($userID);
+$userFound = $userQuery->fetch();
+$userQuery->close();
 
-// if (!$userFound) {
-//     http_response_code(404);
-//     echo json_encode(["status" => "error", "message" => "User not found"]);
-//     exit();
-// }
+if (!$userFound) {
+    http_response_code(404);
+    echo json_encode(["status" => "error", "message" => "User not found"]);
+    exit();
+}
 
 
 if ($method === 'POST') {
-
-$userID= 110;
-
 
     // Delete like
     $stmt = $conn->prepare("DELETE FROM artPostLikes WHERE userID = ? AND postID = ?");

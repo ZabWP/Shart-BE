@@ -17,30 +17,27 @@ if ($conn->connect_error) {
 }
 
 // --- INPUT ---
-$data = json_decode(file_get_contents("php://input"), true);
-$username = $data['username'] ?? '';
-$artID = $_GET['id'];
+$username = $_GET['username'] ?? '';
+$artID = $_GET['id'] ?? '';
 
-// // --- VALIDATE ---
-// if (empty($username) || $artID === 0) {
-//     http_response_code(400);
-//     echo json_encode(["status" => "error", "message" => "Missing username or artID"]);
-//     exit();
-// }
+// --- VALIDATE ---
+if (empty($username) || $artID === 0) {
+    http_response_code(400);
+    echo json_encode(["status" => "error", "message" => "Missing username or artID"]);
+    exit();
+}
 
-// // --- GET userID from username ---
-// $stmt = $conn->prepare("SELECT userID FROM users WHERE username = ?");
-// $stmt->bind_param("s", $username);
-// $stmt->execute();
-// $stmt->bind_result($userID);
-// $stmt->fetch();
-// $stmt->close();
+// --- GET userID from username ---
+$stmt = $conn->prepare("SELECT userID FROM users WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$stmt->bind_result($userID);
+$stmt->fetch();
+$stmt->close();
 
 // --- CHECK if like exists ---
 $liked = false;
 
-//delete later!!!
-$userID = 110;
 
 if ($userID) {
    
