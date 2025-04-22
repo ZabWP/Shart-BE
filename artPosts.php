@@ -15,8 +15,20 @@ if ($conn->connect_error) {
 
 
 if (empty($_SERVER['QUERY_STRING'])) {
-    $sql = "SELECT artGallery.*, users.username, users.name , users.profilePic 
-    FROM artGallery INNER JOIN users ON artGallery.authorID = users.userID";
+    $sql = "
+    SELECT 
+        artGallery.*, 
+        users.username, 
+        users.name, 
+        users.profilePic, 
+        COUNT(artPostLikes.likeID) AS likeCount
+    FROM artGallery 
+    INNER JOIN users ON artGallery.authorID = users.userID
+    LEFT JOIN artPostLikes ON artGallery.artID = artPostLikes.postID
+    GROUP BY artGallery.artID, users.username, users.name, users.profilePic
+    ORDER BY likeCount DESC
+    LIMIT 10
+    ";
     $result = $conn->query($sql);
 
     $data = [];
